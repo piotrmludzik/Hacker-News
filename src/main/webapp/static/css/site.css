@@ -7,23 +7,42 @@ body {
     background-color: gainsboro;
 }
 
-div {
-    margin: 10px;
+#main_container {
+    height: 100vh;
+
+    /* Grid container */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 'header' 'main' 'footer';
 }
 
 
 /* The header area */
 
 header {
+    grid-area: header;
+
     padding: 5px 12px;
     color: snow;
     background-color: gray;
 }
 
 
+/* The main area */
+
+main {
+    grid-area: main;
+
+    padding: 15px;
+}
+
+
 /* The footer area */
 
 footer {
+    grid-area: footer;
+
     padding: 5px 12px;
     color: snow;
     background-color: gray;

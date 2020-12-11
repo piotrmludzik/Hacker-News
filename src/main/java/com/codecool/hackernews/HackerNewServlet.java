@@ -26,7 +26,7 @@ public class HackerNewServlet extends javax.servlet.http.HttpServlet {
                         "<link rel=\"stylesheet\" type=\"text/css\" href='/static/css/site.css'>" +
                         "<title>" + title + "</title>" +
                     "</head>" +
-                    "<body>" +
+                    "<body id=\"main_container\">" +
                         "<header>" +
                             "<span>" + title + "</span>" +
                             "<span>Top news</span>" +
