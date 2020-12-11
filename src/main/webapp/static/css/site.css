@@ -1,12 +1,30 @@
-.visit {
-    color: blue;
-    font-weight: bolder;
+/* The body area */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: gainsboro;
 }
 
-.folder {
-    color: darkblue;
-    background-color: antiquewhite;
-    font-style: italic;
-    border: 1px solid darkred;
-    padding: 3px;
+div {
+    margin: 10px;
+}
+
+
+/* The header area */
+
+header {
+    padding: 5px 12px;
+    color: snow;
+    background-color: gray;
+}
+
+
+/* The footer area */
+
+footer {
+    padding: 5px 12px;
+    color: snow;
+    background-color: gray;
 }
