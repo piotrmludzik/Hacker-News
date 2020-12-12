@@ -1,0 +1,25 @@
+:root {
+    /* ------------- The basic palette ------------- */
+
+    --color-lvl1: #f4f7f7;
+    --color-lvl2: #aacfd0;
+    --color-lvl3: #79a8a9;
+    --color-lvl4: #1f4e5f;
+    --color-lvl5: #000000;
+
+
+    /* ------------- The main colors ------------- */
+
+    --color-background-body: var(--color-lvl1);
+    --color-background-header: var(--color-lvl4);
+    --color-background-footer: var(--color-lvl4);
+
+    --color-font-body: var(--color-lvl5);
+    --color-font-header: var(--color-lvl1);
+    --color-font-footer: var(--color-lvl1);
+
+    --color-link-normal: var(--color-lvl1);
+    --color-link-visited: var(--color-lvl1);
+    --color-link-hover: var(--color-lvl3);
+    --color-link-active: var(--color-lvl2);
+}

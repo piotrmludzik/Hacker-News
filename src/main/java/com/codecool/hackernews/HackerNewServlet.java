@@ -23,10 +23,11 @@ public class HackerNewServlet extends javax.servlet.http.HttpServlet {
                 "<html lang=\"en\">" +
                     "<head>" +
                         "<meta charset=\"UTF-8\">" +
+                        "<link rel=\"stylesheet\" type=\"text/css\" href='/static/css/colors.css'>" +
                         "<link rel=\"stylesheet\" type=\"text/css\" href='/static/css/site.css'>" +
                         "<title>" + title + "</title>" +
                     "</head>" +
-                    "<body id=\"main_container\">" +
+                    "<body id=\"main-container\">" +
                         "<header>" +
                             "<span>" + title + "</span>" +
                             "<span>Top news</span>" +

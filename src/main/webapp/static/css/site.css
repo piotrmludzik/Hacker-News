@@ -1,13 +1,16 @@
-/* The body area */
+/* ------------- The body area ------------- */
 
 body {
     margin: 0;
     padding: 0;
+
+    color: var(--color-font-body);
+    background-color: var(--color-background-body);
+
     font-family: sans-serif;
-    background-color: gainsboro;
 }
 
-#main_container {
+#main-container {
     height: 100vh;
 
     /* Grid container */
@@ -18,32 +21,73 @@ body {
 }
 
 
-/* The header area */
+/* ------------- The header area ------------- */
 
 header {
     grid-area: header;
 
-    padding: 5px 12px;
-    color: snow;
-    background-color: gray;
+    /* Flex container */
+    display: flex;
+
+    color: var(--color-font-header);
+    background-color: var(--color-background-header);
 }
 
+header > span {
+    margin: 0.75em;
+}
 
-/* The main area */
+/* ------------- The main area ------------- */
 
 main {
     grid-area: main;
+    overflow: auto;
 
-    padding: 15px;
+    /* Flex container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    padding: 1em;
+}
+
+main > span {
+    margin: 1em;
 }
 
 
-/* The footer area */
+/* ------------- The footer area ------------- */
 
 footer {
     grid-area: footer;
 
-    padding: 5px 12px;
-    color: snow;
-    background-color: gray;
+    color: var(--color-font-footer);
+    background-color: var(--color-background-footer);
+}
+
+footer > span {
+    margin: 1.5em;
+    font-size: small;
+}
+
+
+/* ------------- Links colors ------------- */
+
+a:link {
+    color: var(--color-link-normal);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--color-link-visited);
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+a:active {
+    color: var(--color-link-active);
 }
