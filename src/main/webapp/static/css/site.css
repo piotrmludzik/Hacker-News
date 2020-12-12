@@ -1,12 +1,93 @@
-.visit {
-    color: blue;
-    font-weight: bolder;
+/* ------------- The body area ------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+
+    color: var(--color-font-body);
+    background-color: var(--color-background-body);
+
+    font-family: sans-serif;
 }
 
-.folder {
-    color: darkblue;
-    background-color: antiquewhite;
-    font-style: italic;
-    border: 1px solid darkred;
-    padding: 3px;
+#main-container {
+    height: 100vh;
+
+    /* Grid container */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 'header' 'main' 'footer';
+}
+
+
+/* ------------- The header area ------------- */
+
+header {
+    grid-area: header;
+
+    /* Flex container */
+    display: flex;
+
+    color: var(--color-font-header);
+    background-color: var(--color-background-header);
+}
+
+header > span {
+    margin: 0.75em;
+}
+
+/* ------------- The main area ------------- */
+
+main {
+    grid-area: main;
+    overflow: auto;
+
+    /* Flex container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    padding: 1em;
+}
+
+main > span {
+    margin: 1em;
+}
+
+
+/* ------------- The footer area ------------- */
+
+footer {
+    grid-area: footer;
+
+    color: var(--color-font-footer);
+    background-color: var(--color-background-footer);
+}
+
+footer > span {
+    margin: 1.5em;
+    font-size: small;
+}
+
+
+/* ------------- Links colors ------------- */
+
+a:link {
+    color: var(--color-link-normal);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--color-link-visited);
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+a:active {
+    color: var(--color-link-active);
 }

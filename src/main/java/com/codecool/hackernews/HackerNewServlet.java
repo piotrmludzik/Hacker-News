@@ -16,24 +16,32 @@ public class HackerNewServlet extends javax.servlet.http.HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String title = "Michael Hackson news";
+        String title = "Hacker news";
 
         out.println(
-                "<html>\n" +
-                        "<head>" +
-                        "  <title>" + title + "</title>" +
-                        "  <link rel=\"stylesheet\" type=\"text/css\" href='/static/css/site.css' />" +
-                        "</head>\n" +
-                        "<body>\n" +
-                        "<h1 align = \"center\">" + title + "</h1>\n" +
-                        "<ul>\n" +
-                        "<li><b>First Name</b>: " + request.getParameter("first_name") + "\n" +
-                        "<li><b>Last Name</b>: " + request.getParameter("last_name") + "\n" +
-                        "</ul>\n" +
-                        "<div class='visit'>You can serve any static content from <span class='folder'>webapp/static</span> folder, like a css file.</div>" +
-                        "<div>Visit another servlet: <a href=\"/another\">Visit the other servlet</a></div>" +
-                        "<div>You can provide a json file as well: <a href=\"/json\">Visit Hacker News json data example</a></div>" +
-                        "</body></html>"
+                "<!DOCTYPE HTML>" +
+                "<html lang=\"en\">" +
+                    "<head>" +
+                        "<meta charset=\"UTF-8\">" +
+                        "<link rel=\"stylesheet\" type=\"text/css\" href='/static/css/colors.css'>" +
+                        "<link rel=\"stylesheet\" type=\"text/css\" href='/static/css/site.css'>" +
+                        "<title>" + title + "</title>" +
+                    "</head>" +
+                    "<body id=\"main-container\">" +
+                        "<header>" +
+                            "<span>" + title + "</span>" +
+                            "<span>Top news</span>" +
+                            "<span>Newest</span>" +
+                            "<span>Jobs</span>" +
+                        "</header>" +
+                        "<main>" +
+                            "BODY" +
+                        "</main>" +
+                        "<footer>" +
+                            "<span>" + title + " by Piotr Mludzik (link to <a href=\"https://github.com/piotrmludzik\">GitHub</a>)<span>" +
+                        "</footer>" +
+                    "</body>" +
+                "</html>"
         );
     }
 }
