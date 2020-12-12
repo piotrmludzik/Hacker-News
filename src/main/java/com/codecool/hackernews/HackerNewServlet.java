@@ -29,19 +29,34 @@ public class HackerNewServlet extends javax.servlet.http.HttpServlet {
                     "</head>" +
                     "<body id=\"main-container\">" +
                         "<header>" +
-                            "<span>" + title + "</span>" +
-                            "<span>Top news</span>" +
-                            "<span>Newest</span>" +
-                            "<span>Jobs</span>" +
+                            "<span><a href=\"\\\">" + title + "</a></span>" +
+                            "<span><a href=\"\\top-news\">Top news</a></span>" +
+                            "<span><a href=\"\\newest\">Newest</a></span>" +
+                            "<span><a href=\"\\jobs\">Jobs</a></span>" +
                         "</header>" +
                         "<main>" +
-                            "BODY" +
+                            "<article>" +
+                                "<header>" +
+                                    "Title" +
+                                "</header>" +
+                                "<section>" +
+                                    "TimeAgo" +
+                                "</section>" +
+                                "<footer>" +
+                                    "Author" +
+                                "</footer>" +
+                            "</article>" +
                         "</main>" +
                         "<footer>" +
-                            "<span>" + title + " by Piotr Mludzik (link to <a href=\"https://github.com/piotrmludzik\">GitHub</a>)<span>" +
+                            "<span>" +
+                                title +
+                                " by Piotr Mludzik (link to: " +
+                                "<a href=\"https://github.com/piotrmludzik\">GitHub</a>, " +
+                                "<a href=\"https://www.linkedin.com/in/piotrmludzik\">LinkedIn</a>)" +
+                            "<span>" +
                         "</footer>" +
                     "</body>" +
-                "</html>"
+                    "</html>"
         );
     }
 }

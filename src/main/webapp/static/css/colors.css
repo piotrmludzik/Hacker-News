@@ -18,6 +18,9 @@
     --color-font-header: var(--color-lvl1);
     --color-font-footer: var(--color-lvl1);
 
+    --color-article-font: var(--color-lvl1);
+    --color-article-background: var(--color-lvl3);
+
     --color-link-normal: var(--color-lvl1);
     --color-link-visited: var(--color-lvl1);
     --color-link-hover: var(--color-lvl3);

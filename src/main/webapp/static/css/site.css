@@ -50,7 +50,7 @@ main {
     align-items: flex-start;
     align-content: flex-start;
 
-    padding: 1em;
+    padding: 2em;
 }
 
 main > span {
@@ -69,6 +69,47 @@ footer {
 
 footer > span {
     margin: 1.5em;
+    font-size: small;
+}
+
+
+/* ------------- The article area ------------- */
+
+article {
+    min-width: 300px;
+    min-height: 200px;
+
+    /* Flex container */
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+
+    color: var(--color-article-font);
+    background: var(--color-article-background);
+}
+
+article header {
+    padding: 0.5em;
+
+    color: var(--color-article-font);
+    background: var(--color-article-background);
+
+    font-size: larger;
+    font-weight: bold;
+}
+
+article section {
+    flex: 1;
+
+    padding: 0 0.5em 0 0.5em;
+}
+
+article footer {
+    padding: 0.5em;
+
+    color: var(--color-article-font);
+    background: var(--color-article-background);
+
     font-size: small;
 }
 
