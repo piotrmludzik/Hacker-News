@@ -16,6 +16,8 @@ import java.net.URL;
 @WebServlet(name = "ApiServlet", urlPatterns = {"/api/*"}, loadOnStartup = 0)
 public class ApiServlet extends HttpServlet {
 
+    private String dataType;
+
     /**
      * Handles all API queries sent to the server by GET method.
      *
@@ -39,29 +41,27 @@ public class ApiServlet extends HttpServlet {
         if (pathInfo == null)  // entered "{url address}/api"
             return "{\"information\": \"This is the correct way to get an answer. However, please make a better request!\"}";
 
-        String dataType = getDataType(pathInfo);
+        setDataType(pathInfo);
         if (dataType == null)  // bad API request
             return "{\"error\": \"Bad API request.\"}";
 
-        if (pageNumber == null)  // no page number
-            pageNumber = "1";
-
-        return  getDataFromExternalApi(dataType, pageNumber);
+        return  getDataFromExternalApi();
     }
 
-    /* Returns the data type based on the path of the API request. */
-    private String getDataType(String pathInfo) {
+    /* Sets the inquiries number and data type based on the path of the API request. */
+    private void setDataType(String pathInfo) {
         switch (pathInfo) {
             case "/top" :
-                return "news";
+                dataType = "news";
+                break;
             default :
-                return null;
+                dataType = null;
         }
     }
 
     /* Sends reqest to the external API and returns the JSON response as a string. */
-    private String getDataFromExternalApi(String dataType, String pageNumber) throws IOException {
-        HttpURLConnection con = setupConnection(dataType, pageNumber);
+    private String getDataFromExternalApi() throws IOException {
+        HttpURLConnection con = setupConnection();
         Reader streamReader = checkAndGetResponse(con);
         String content = readResponse(streamReader);
         con.disconnect();
@@ -70,8 +70,8 @@ public class ApiServlet extends HttpServlet {
     }
 
     /* Creates and sets up connection to the external API. */
-    private HttpURLConnection setupConnection(String dataType, String pageNumber) throws IOException {
-        HttpURLConnection con = (HttpURLConnection) prepareUrl(dataType, pageNumber).openConnection();
+    private HttpURLConnection setupConnection() throws IOException {
+        HttpURLConnection con = (HttpURLConnection) prepareUrl().openConnection();
         con.setRequestMethod("GET");
         con.setConnectTimeout(5000);
 
@@ -79,8 +79,8 @@ public class ApiServlet extends HttpServlet {
     }
 
     /* Creates URL address to the external API. */
-    private URL prepareUrl(String dataType, String pageNumber) throws MalformedURLException {
-        return new URL("https://api.hnpwa.com/v0/" + dataType + "/" + pageNumber + ".json");
+    private URL prepareUrl() throws MalformedURLException {
+        return new URL("https://api.hnpwa.com/v0/" + dataType + "/" + 1 + ".json");
     }
 
     /* Checks if the connection is correct and returns a response. */
