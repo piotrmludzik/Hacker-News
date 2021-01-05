@@ -22,8 +22,10 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        List<NewsModel> news = new NewsDao(Const.DataType.NEWS, request.getParameter("page")).getNews();
-        String pageTemplate = new NewsTemplate("", news).getTemplate();
+        String pageNumber = request.getParameter("page");
+
+        List<NewsModel> news = new NewsDao(Const.DataType.NEWS, pageNumber).getNews();
+        String pageTemplate = new NewsTemplate("", pageNumber, news).getTemplate();
 
         PrintWriter out = response.getWriter();
         out.println(pageTemplate);

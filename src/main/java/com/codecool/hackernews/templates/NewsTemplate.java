@@ -8,13 +8,15 @@ import java.util.List;
 public class NewsTemplate {
 
     private final String pageTitle;
+    private final String pageNumber;
     private final List<NewsModel> news;
 
     /**
      * The constructor of news template.
      */
-    public NewsTemplate(String pageTitle, List<NewsModel> news) {
+    public NewsTemplate(String pageTitle, String pageNumber, List<NewsModel> news) {
         this.pageTitle = pageTitle;
+        this.pageNumber = (pageNumber == null ? "1" : pageNumber);
         this.news = news;
     }
 
@@ -81,12 +83,18 @@ public class NewsTemplate {
                 "<body id=\"main-container\">" +
                     "<header>" +
                         "<span><a href=\"\\\">" + Const.SITE_NAME + "</a></span>" +
-                        "<span><a href=\"\\top-news\">Top news</a></span>" +
+                        "<span><a href=\"\\top\">Top news</a></span>" +
                         "<span><a href=\"\\newest\">Newest</a></span>" +
                         "<span><a href=\"\\jobs\">Jobs</a></span>" +
                     "</header>" +
                     "<main>" +
-                        articles +
+                        "<div id=\"page_pagination\">" +
+                            "<span><a href=\"\\top?page=" + getPagePaginationNumber(-1) + "\"><<<</a></span>" +
+                            "<span><a href=\"\\top?page=" + getPagePaginationNumber(1) + "\">>>></a></span>" +
+                        "</div>" +
+                        "<div id=\"articles\">"+
+                            articles +
+                        "</div>" +
                     "</main>" +
                     "<footer>" +
                         "<span>" +
@@ -97,5 +105,17 @@ public class NewsTemplate {
                     "</footer>" +
                 "</body>" +
                 "</html>";
+    }
+
+    /*
+     * Returns the page number for pagination. The direction determines
+     * whether to subtract or add a number from the current side.
+     */
+    private String getPagePaginationNumber(int direction) {
+        int pageNumberForPagination = Integer.parseInt(this.pageNumber) + direction;
+        if (pageNumberForPagination <= 0)
+            pageNumberForPagination = 1;
+
+        return String.valueOf(pageNumberForPagination);
     }
 }
