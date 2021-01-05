@@ -60,6 +60,8 @@ public class ApiServlet extends HttpServlet {
         switch (pathInfo) {
             case "/top" :
                 return Const.DataType.TOP;
+            case "/newest" :
+                return Const.DataType.NEWEST;
             default :
                 return null;
         }
