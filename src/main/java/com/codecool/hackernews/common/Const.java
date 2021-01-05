@@ -4,9 +4,9 @@ public class Const {
     /** The site name. */
     public static final String SITE_NAME = "Hacker news";
 
-    /** The news data type */
+    /** The news data type. The names represent queries to the external API. */
     public static class DataType {
-        public static final String NEWS = "news";
+        public static final String TOP = "news";
 
         private DataType() {}
     }

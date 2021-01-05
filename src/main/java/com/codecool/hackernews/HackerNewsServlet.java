@@ -24,7 +24,7 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
 
         String pageNumber = request.getParameter("page");
 
-        List<NewsModel> news = new NewsDao(Const.DataType.NEWS, pageNumber).getNews();
+        List<NewsModel> news = new NewsDao(Const.DataType.TOP, pageNumber).getNews();
         String pageTemplate = new NewsTemplate("", pageNumber, news).getTemplate();
 
         PrintWriter out = response.getWriter();

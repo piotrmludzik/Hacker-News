@@ -59,7 +59,7 @@ public class ApiServlet extends HttpServlet {
     private String setDataType(String pathInfo) {
         switch (pathInfo) {
             case "/top" :
-                return Const.DataType.NEWS;
+                return Const.DataType.TOP;
             default :
                 return null;
         }
