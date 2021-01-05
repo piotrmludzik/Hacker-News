@@ -1,5 +1,6 @@
 package com.codecool.hackernews;
 
+import com.codecool.hackernews.common.Const;
 import com.codecool.hackernews.service.NewsService;
 
 import javax.servlet.annotation.WebServlet;
@@ -49,7 +50,7 @@ public class ApiServlet extends HttpServlet {
     private String setDataType(String pathInfo) {
         switch (pathInfo) {
             case "/top" :
-                return "news";
+                return Const.DataType.NEWS;
             default :
                 return null;
         }
