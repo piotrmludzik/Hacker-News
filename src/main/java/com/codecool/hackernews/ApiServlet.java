@@ -29,6 +29,15 @@ public class ApiServlet extends HttpServlet {
         makeResponse(response, getData(request.getPathInfo(), request.getParameter("page")));
     }
 
+    /* Sets the response and returns the data as JSON. */
+    private void makeResponse(HttpServletResponse response, String data) throws IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        PrintWriter out = response.getWriter();
+        out.println(data);
+    }
+
     /*
      * Checks the boundary conditions and returns data from external API.
      * If anything goes wrong, return the information or the error in JSON format.
@@ -42,7 +51,7 @@ public class ApiServlet extends HttpServlet {
         if (dataType == null)  // bad API request
             return "{\"error\": \"Bad API request.\"}";
 
-        NewsService data = new NewsService(dataType);
+        NewsService data = new NewsService(dataType, pageNumber);
         return data.getData();
     }
 
@@ -54,14 +63,5 @@ public class ApiServlet extends HttpServlet {
             default :
                 return null;
         }
-    }
-
-    /* Sets the response and returns the data as JSON. */
-    private void makeResponse(HttpServletResponse response, String data) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
-        PrintWriter out = response.getWriter();
-        out.println(data);
     }
 }

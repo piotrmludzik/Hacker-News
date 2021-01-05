@@ -15,13 +15,15 @@ import java.util.List;
  */
 public class NewsDao {
 
-    private final String dataType;  // The news data type, stored as a type name.
+    private final String dataType;    // The news data type, stored as a type name.
+    private final String pageNumber;  // The page number of collected news.
 
     /**
      * The constructor of news data access object.
      */
-    public NewsDao(String dataType) {
+    public NewsDao(String dataType, String pageNumber) {
         this.dataType = dataType;
+        this.pageNumber = pageNumber;
     }
 
     /**
@@ -34,7 +36,7 @@ public class NewsDao {
 
     /* Gets news from external API. */
     private String getNewsFromSource() throws IOException {
-        return new NewsService(dataType).getData();
+        return new NewsService(dataType, pageNumber).getData();
     }
 
     /* Converts news form JSON to objects */

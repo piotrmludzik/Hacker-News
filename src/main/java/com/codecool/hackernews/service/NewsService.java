@@ -12,13 +12,15 @@ import java.net.URL;
  */
 public class NewsService {
 
-    private final String dataType;
+    private final String dataType;      // The news data type, stored as a type name.
+    private final String pageNumber;    // The page number of collected news.
 
     /**
      * Prepares an instance with the data type setting.
      */
-    public NewsService(String dataType) {
+    public NewsService(String dataType, String pageNumber) {
         this.dataType = dataType;
+        this.pageNumber = (pageNumber == null ? "1" : pageNumber);
     }
 
     /**
@@ -35,7 +37,7 @@ public class NewsService {
 
     /* Creates and sets up connection to the external API. */
     private HttpURLConnection setupConnection() throws IOException {
-        URL url = new URL("https://api.hnpwa.com/v0/" + dataType + "/" + 1 + ".json");
+        URL url = new URL("https://api.hnpwa.com/v0/" + dataType + "/" + pageNumber + ".json");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
         con.setRequestMethod("GET");

@@ -15,14 +15,14 @@ import java.util.List;
 /**
  * Supports news pages.
  */
-@WebServlet(name = "hackerNewsServlet", urlPatterns = {"/"}, loadOnStartup = 1)
+@WebServlet(name = "hackerNewsServlet", urlPatterns = {"", "/top"}, loadOnStartup = 1)
 public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        List<NewsModel> news = new NewsDao(Const.DataType.NEWS).getNews();
+        List<NewsModel> news = new NewsDao(Const.DataType.NEWS, request.getParameter("page")).getNews();
         String pageTemplate = new NewsTemplate("", news).getTemplate();
 
         PrintWriter out = response.getWriter();
