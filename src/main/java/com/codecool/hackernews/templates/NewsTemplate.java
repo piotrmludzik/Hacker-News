@@ -2,7 +2,7 @@ package com.codecool.hackernews.templates;
 
 import com.codecool.hackernews.common.Const;
 import com.codecool.hackernews.common.NewsConst;
-import com.codecool.hackernews.common.NewsTitle;
+import com.codecool.hackernews.common.NewsHandler;
 import com.codecool.hackernews.models.NewsModel;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class NewsTemplate {
 
     /* Gets the title of the site (displayed in the browser tab). */
     private String getTitle() {
-        String pageName = NewsTitle.getNewsTitle(newsType);
+        String pageName = NewsHandler.getNewsTitle(newsType);
         if (pageName == null)
             return Const.SITE_NAME;
 

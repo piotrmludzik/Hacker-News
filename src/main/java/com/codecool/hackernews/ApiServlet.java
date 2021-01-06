@@ -1,6 +1,6 @@
 package com.codecool.hackernews;
 
-import com.codecool.hackernews.common.NewsType;
+import com.codecool.hackernews.common.NewsHandler;
 import com.codecool.hackernews.service.NewsService;
 
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +46,7 @@ public class ApiServlet extends HttpServlet {
         if (pathInfo == null)  // entered "/api"
             return "{\"information\": \"This is the correct way to get an answer. However, please make a better request!\"}";
 
-        String newsType = NewsType.getType(pathInfo);
+        String newsType = NewsHandler.getNewsType(pathInfo);
         if (newsType == null)  // bad API request
             return "{\"error\": \"Bad API request.\"}";
 

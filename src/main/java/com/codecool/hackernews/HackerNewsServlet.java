@@ -1,7 +1,7 @@
 package com.codecool.hackernews;
 
 import com.codecool.hackernews.common.NewsConst;
-import com.codecool.hackernews.common.NewsType;
+import com.codecool.hackernews.common.NewsHandler;
 import com.codecool.hackernews.dao.NewsDao;
 import com.codecool.hackernews.models.NewsModel;
 import com.codecool.hackernews.templates.NewsTemplate;
@@ -35,7 +35,7 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
 
     /* Returns the news type based on the servlet path. */
     private String getNewsType(String servletPath) {
-        String newsType = NewsType.getType(servletPath);
+        String newsType = NewsHandler.getNewsType(servletPath);
         if (newsType == null)  // default page
             newsType = NewsConst.TOP.getType();
 
