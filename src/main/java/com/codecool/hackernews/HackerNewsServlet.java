@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Supports news pages.
  */
-@WebServlet(name = "hackerNewsServlet", urlPatterns = {"", "/top", "/newest"}, loadOnStartup = 1)
+@WebServlet(name = "hackerNewsServlet", urlPatterns = {"", "/top", "/newest", "/jobs"}, loadOnStartup = 1)
 public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
 
     @Override

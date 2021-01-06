@@ -14,6 +14,8 @@ public class NewsType {
                 return Const.NewsType.TOP;
             case "/newest" :
                 return Const.NewsType.NEWEST;
+            case "/jobs" :
+                return Const.NewsType.JOBS;
             default :
                 return null;
         }

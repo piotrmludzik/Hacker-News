@@ -8,6 +8,7 @@ public class Const {
     public static class NewsType {
         public static final String TOP = "news";
         public static final String NEWEST = "newest";
+        public static final String JOBS = "jobs";
 
         private NewsType() {}
     }
