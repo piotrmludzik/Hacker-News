@@ -37,7 +37,7 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
     private String getNewsType(String servletPath) {
         String newsType = NewsType.getType(servletPath);
         if (newsType == null)  // default page
-            newsType = Const.DataType.TOP;
+            newsType = Const.NewsType.TOP;
 
         return newsType;
     }

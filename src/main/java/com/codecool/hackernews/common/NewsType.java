@@ -11,9 +11,9 @@ public class NewsType {
     public static String getType(String path) {
         switch (path) {
             case "/top" :
-                return Const.DataType.TOP;
+                return Const.NewsType.TOP;
             case "/newest" :
-                return Const.DataType.NEWEST;
+                return Const.NewsType.NEWEST;
             default :
                 return null;
         }
