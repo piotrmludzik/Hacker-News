@@ -1,7 +1,7 @@
 package com.codecool.hackernews;
 
 import com.codecool.hackernews.common.Const;
-import com.codecool.hackernews.common.DataType;
+import com.codecool.hackernews.common.NewsType;
 import com.codecool.hackernews.dao.NewsDao;
 import com.codecool.hackernews.models.NewsModel;
 import com.codecool.hackernews.templates.NewsTemplate;
@@ -23,10 +23,10 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        String dataType = getDataType(request.getServletPath());
+        String newsType = getNewsType(request.getServletPath());
         String pageNumber = request.getParameter("page");
 
-        List<NewsModel> news = new NewsDao(dataType, pageNumber).getNews();
+        List<NewsModel> news = new NewsDao(newsType, pageNumber).getNews();
         String pageTemplate = new NewsTemplate("", pageNumber, news).getTemplate();
 
         PrintWriter out = response.getWriter();
@@ -34,11 +34,11 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
     }
 
     /* Returns the news type based on the servlet path. */
-    private String getDataType(String servletPath) {
-        String dataType = DataType.getType(servletPath);
-        if (dataType == null)  // default page
-            dataType = Const.DataType.TOP;
+    private String getNewsType(String servletPath) {
+        String newsType = NewsType.getType(servletPath);
+        if (newsType == null)  // default page
+            newsType = Const.DataType.TOP;
 
-        return dataType;
+        return newsType;
     }
 }

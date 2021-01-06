@@ -3,10 +3,10 @@ package com.codecool.hackernews.common;
 /**
  * The static class is responsible for determining the type of news.
  */
-public class DataType {
+public class NewsType {
 
     /**
-     *  Returns the news type based on the path of the URL
+     *  Returns the news type based on the path of the URL.
      */
     public static String getType(String path) {
         switch (path) {
@@ -20,7 +20,7 @@ public class DataType {
     }
 
     /* Prevents from creating an instance. */
-    private DataType() {
+    private NewsType() {
         throw new AssertionError("The DataType class cannot be an object.");
     }
 }
