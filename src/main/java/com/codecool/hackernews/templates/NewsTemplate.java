@@ -7,19 +7,17 @@ import java.util.List;
 
 public class NewsTemplate {
 
-    private final String pageTitle;
-    private final String pageNumber;
-    private final String newsType;
     private final List<NewsModel> news;
+    private final String newsType;
+    private final String pageNumber;
 
     /**
      * The constructor of news template.
      */
-    public NewsTemplate(String pageTitle, String pageNumber, String newsType, List<NewsModel> news) {
-        this.pageTitle = pageTitle;
-        this.pageNumber = (pageNumber == null ? "1" : pageNumber);
-        this.newsType = newsType;
+    public NewsTemplate(List<NewsModel> news, String newsType, String pageNumber) {
         this.news = news;
+        this.newsType = newsType;
+        this.pageNumber = (pageNumber == null ? "1" : pageNumber);
     }
 
     /**
@@ -34,16 +32,22 @@ public class NewsTemplate {
 
     /* Gets the title of the site (displayed in the browser tab). */
     private String getTitle() {
-        String title = Const.SITE_NAME;
-        if (noPageTitle())
-            title = Const.SITE_NAME + " | " + pageTitle;
+        String pageName = " | ";
+        switch (newsType) {
+            case Const.NewsType.TOP :
+                pageName += "Top news";
+                break;
+            case Const.NewsType.NEWEST :
+                pageName += "Newest news";
+                break;
+            case Const.NewsType.JOBS :
+                pageName += "Jobs news";
+                break;
+            default :
+                pageName = "";
+        }
 
-        return title;
-    }
-
-    /* Returns true if there is no page title, false otherwise. */
-    private boolean noPageTitle() {
-        return !pageTitle.equals("");
+        return Const.SITE_NAME + pageName;
     }
 
     /* Returns a html code with all news articles. */
