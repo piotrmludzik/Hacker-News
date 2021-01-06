@@ -7,6 +7,7 @@ public class Const {
     /** The news data type. The names represent queries to the external API. */
     public static class DataType {
         public static final String TOP = "news";
+        public static final String NEWEST = "newest";
 
         private DataType() {}
     }

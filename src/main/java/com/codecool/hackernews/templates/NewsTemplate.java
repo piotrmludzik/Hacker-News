@@ -54,7 +54,7 @@ public class NewsTemplate {
         return articlesCode.toString();
     }
 
-    /* Returns html code with news aritcle. */
+    /* Returns html code with news article. */
     private String generateHtmlArticle(NewsModel oneNews) {
         return "<article>" +
                     "<header>" + oneNews.getTitle() + "</header>" +
@@ -65,7 +65,7 @@ public class NewsTemplate {
                     "<footer>" +
                         "domain: <span>" + oneNews.getDomain() + "</span> | " +
                         "points: <span>" + oneNews.getPoints() + "</span> | " +
-                        "ccomments: <span>" + oneNews.getCommentsCount() + "</span>" +
+                        "comments: <span>" + oneNews.getCommentsCount() + "</span>" +
                     "</footer>" +
                 "</article>";
     }
