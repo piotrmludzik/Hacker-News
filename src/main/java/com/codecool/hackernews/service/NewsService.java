@@ -19,7 +19,7 @@ public class NewsService {
      * Prepares an instance with the news type setting.
      */
     public NewsService(String newsType, String pageNumber) {
-        this.newsType = newsType;
+        this.newsType = (newsType.equals("top") ? "news" : newsType);  // top news in external api are just news
         this.pageNumber = (pageNumber == null ? "1" : pageNumber);
     }
 

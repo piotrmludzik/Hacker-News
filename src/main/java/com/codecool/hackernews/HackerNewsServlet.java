@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Supports news pages.
  */
-@WebServlet(name = "hackerNewsServlet", urlPatterns = {"", "/top", "/newest"}, loadOnStartup = 1)
+@WebServlet(name = "hackerNewsServlet", urlPatterns = {"", "/top", "/newest", "/jobs"}, loadOnStartup = 1)
 public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
 
     @Override
@@ -27,7 +27,7 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
         String pageNumber = request.getParameter("page");
 
         List<NewsModel> news = new NewsDao(newsType, pageNumber).getNews();
-        String pageTemplate = new NewsTemplate("", pageNumber, news).getTemplate();
+        String pageTemplate = new NewsTemplate("", pageNumber, newsType, news).getTemplate();
 
         PrintWriter out = response.getWriter();
         out.println(pageTemplate);
@@ -37,7 +37,7 @@ public class HackerNewsServlet extends javax.servlet.http.HttpServlet {
     private String getNewsType(String servletPath) {
         String newsType = NewsType.getType(servletPath);
         if (newsType == null)  // default page
-            newsType = Const.DataType.TOP;
+            newsType = Const.NewsType.TOP;
 
         return newsType;
     }
