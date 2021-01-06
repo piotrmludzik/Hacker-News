@@ -9,14 +9,16 @@ public class NewsTemplate {
 
     private final String pageTitle;
     private final String pageNumber;
+    private final String newsType;
     private final List<NewsModel> news;
 
     /**
      * The constructor of news template.
      */
-    public NewsTemplate(String pageTitle, String pageNumber, List<NewsModel> news) {
+    public NewsTemplate(String pageTitle, String pageNumber, String newsType, List<NewsModel> news) {
         this.pageTitle = pageTitle;
         this.pageNumber = (pageNumber == null ? "1" : pageNumber);
+        this.newsType = newsType;
         this.news = news;
     }
 
@@ -89,10 +91,10 @@ public class NewsTemplate {
                     "</header>" +
                     "<main>" +
                         "<div id=\"page_pagination\">" +
-                            "<span><a href=\"\\top?page=" + getPagePaginationNumber(-1) + "\"><<<</a></span>" +
-                            "<span><a href=\"\\top?page=" + getPagePaginationNumber(1) + "\">>>></a></span>" +
+                            "<span><a href=\"\\" + newsType + "?page=" + getPagePaginationNumber(-1) + "\"><<<</a></span>" +
+                            "<span><a href=\"\\" + newsType + "?page=" + getPagePaginationNumber(1) + "\">>>></a></span>" +
                         "</div>" +
-                        "<div id=\"articles\">"+
+                        "<div id=\"articles\">" +
                             articles +
                         "</div>" +
                     "</main>" +

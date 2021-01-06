@@ -6,7 +6,7 @@ public class Const {
 
     /** The news type. The names represent queries to the external API. */
     public static class NewsType {
-        public static final String TOP = "news";
+        public static final String TOP = "top";
         public static final String NEWEST = "newest";
         public static final String JOBS = "jobs";
 
