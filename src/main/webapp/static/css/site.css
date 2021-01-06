@@ -28,6 +28,7 @@ header {
 
     /* Flex container */
     display: flex;
+    align-items: center;
 
     color: var(--color-font-header);
     background-color: var(--color-background-header);
@@ -93,6 +94,16 @@ footer > span {
     font-size: small;
 }
 
+
+/* ------------- The navigation bar ------------- */
+
+#navbar_title {
+    font-size: large;
+}
+
+#navbar_active {
+    font-weight: bold;
+}
 
 /* ------------- The article area ------------- */
 

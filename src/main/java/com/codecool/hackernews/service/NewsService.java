@@ -1,5 +1,7 @@
 package com.codecool.hackernews.service;
 
+import com.codecool.hackernews.common.NewsConst;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,7 +21,7 @@ public class NewsService {
      * Prepares an instance with the news type setting.
      */
     public NewsService(String newsType, String pageNumber) {
-        this.newsType = (newsType.equals("top") ? "news" : newsType);  // top news in external api are just news
+        this.newsType = (newsType.equals(NewsConst.TOP.getType()) ? "news" : newsType);  // top news in external api are just news
         this.pageNumber = (pageNumber == null ? "1" : pageNumber);
     }
 

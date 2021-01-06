@@ -8,14 +8,15 @@ public class NewsType {
     /**
      *  Returns the news type based on the path of the URL.
      */
+    //TODO: check if it can be written better.
     public static String getType(String path) {
         switch (path) {
             case "/top" :
-                return Const.NewsType.TOP;
+                return NewsConst.TOP.getType();
             case "/newest" :
-                return Const.NewsType.NEWEST;
+                return NewsConst.NEWEST.getType();
             case "/jobs" :
-                return Const.NewsType.JOBS;
+                return NewsConst.JOBS.getType();
             default :
                 return null;
         }

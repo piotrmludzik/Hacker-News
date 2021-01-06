@@ -1,6 +1,7 @@
 package com.codecool.hackernews.templates;
 
 import com.codecool.hackernews.common.Const;
+import com.codecool.hackernews.common.NewsConst;
 import com.codecool.hackernews.models.NewsModel;
 
 import java.util.List;
@@ -26,21 +27,23 @@ public class NewsTemplate {
     public String getTemplate() {
         String title = getTitle();
         String articles = getArticles();
+        String navbar = getNavBar();
 
-        return generateHtmlBase(title, articles);
+        return generateHtmlBase(title, navbar, articles);
     }
 
     /* Gets the title of the site (displayed in the browser tab). */
+    //TODO: refactor this!
     private String getTitle() {
         String pageName = " | ";
         switch (newsType) {
-            case Const.NewsType.TOP :
+            case "top" :
                 pageName += "Top news";
                 break;
-            case Const.NewsType.NEWEST :
+            case "newest" :
                 pageName += "Newest news";
                 break;
-            case Const.NewsType.JOBS :
+            case "jobs" :
                 pageName += "Jobs news";
                 break;
             default :
@@ -48,6 +51,23 @@ public class NewsTemplate {
         }
 
         return Const.SITE_NAME + pageName;
+    }
+
+    /* Returns a navigation bar html code. */
+    private String getNavBar() {
+        StringBuilder navbarCode = new StringBuilder();
+        navbarCode.append("<span id=\"navbar_title\"><a href=\"\\\">" + Const.SITE_NAME + "</a></span>");
+        for (NewsConst newsConst : NewsConst.values()) {
+            String pageType = newsConst.getType();
+            String pageTitle = newsConst.getTitle();
+
+            navbarCode.append("<span");
+            if (newsType.equals(pageType))
+                navbarCode.append(" id=\"navbar_active\"");
+            navbarCode.append("><a href=\"\\").append(pageType).append("\">").append(pageTitle).append("</a></span>");
+        }
+
+        return navbarCode.toString();
     }
 
     /* Returns a html code with all news articles. */
@@ -79,7 +99,7 @@ public class NewsTemplate {
     }
 
     /* Returns html template base as string. */
-    private String generateHtmlBase(String title, String articles) {
+    private String generateHtmlBase(String title, String navbar, String articles) {
         return "<!DOCTYPE HTML>" +
                 "<html lang=\"en\">" +
                 "<head>" +
@@ -90,10 +110,7 @@ public class NewsTemplate {
                 "</head>" +
                 "<body id=\"main-container\">" +
                     "<header>" +
-                        "<span><a href=\"\\\">" + Const.SITE_NAME + "</a></span>" +
-                        "<span><a href=\"\\top\">Top news</a></span>" +
-                        "<span><a href=\"\\newest\">Newest</a></span>" +
-                        "<span><a href=\"\\jobs\">Jobs</a></span>" +
+                        navbar +
                     "</header>" +
                     "<main>" +
                         "<div id=\"page_pagination\">" +
