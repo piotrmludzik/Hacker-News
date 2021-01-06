@@ -23,7 +23,7 @@
 
     --color-link-normal: var(--color-lvl1);
     --color-link-visited: var(--color-lvl1);
-    --color-link-hover: var(--color-lvl3);
+    --color-link-hover: var(--color-lvl2);
     --color-link-active: var(--color-lvl2);
 
     --color-pagination-link-normal: var(--color-lvl3);

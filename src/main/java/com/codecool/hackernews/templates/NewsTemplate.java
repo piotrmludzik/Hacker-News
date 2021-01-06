@@ -63,7 +63,9 @@ public class NewsTemplate {
     /* Returns html code with news article. */
     private String generateHtmlArticle(NewsModel oneNews) {
         return "<article>" +
-                    "<header>" + oneNews.getTitle() + "</header>" +
+                    "<header>" +
+                        "<a href=\"" + oneNews.getUrl() + "\" target=\"_blank\">" + oneNews.getTitle() + "</a>" +
+                    "</header>" +
                     "<section>" +
                         oneNews.getTimeAgo() + "<br>" +
                         oneNews.getUser() +
