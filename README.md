@@ -51,7 +51,7 @@ As his birthday is around the corner, you take the opportunity of surprising him
 - `Title` as link to the original article
 - `Author` - the uploader, if any
 - `TimeAgo` - written info about when the news was published
-    - The webpage follows a basic design: ![Hackernews Screenshot 01](../../media/oop/hacker-news-screenshot-01.png)
+    - The webpage follows a basic design: ![Hackernews Screenshot 01](readme_res/hacker-news-screenshot-01.png)
     - There's a next button above the cards, clicking that shows the next 30 items of news, if any
     - There's a previous button above the cards, clicking that shows the previous 30 items of news, if any
 
